@@ -1,4 +1,6 @@
 require 'sinatra/base'
+require_relative 'lib/opponent'
+
 class RockPaperScissors < Sinatra::Base
   enable :sessions
   get '/' do
@@ -19,7 +21,7 @@ class RockPaperScissors < Sinatra::Base
 
   post '/play' do 
     session[:option] = params[:option]
-    session[:opponent_option] = :rock
+    session[:opponent_option] = Opponent.new.option
     redirect '/play'
   end 
 
