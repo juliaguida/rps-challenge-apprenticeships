@@ -11,8 +11,16 @@ feature 'playing a game ' do
     click_button 'Submit'
   end
   scenario 'see options to play the game' do 
-   expect(page).to have_content 'Rock'
-   expect(page).to have_content 'Paper'
-   expect(page).to have_content 'Scissors'
+   expect(page).to have_button 'Rock'
+   expect(page).to have_button 'Paper'
+   expect(page).to have_button 'Scissors'
+  end
+
+  # As marketeer
+  # So I can play a game 
+  # I want to choose a option
+  scenario 'choose a option' do 
+    click_button 'Rock'
+    expect(page).to have_content 'You chose Rock!'
   end
 end
