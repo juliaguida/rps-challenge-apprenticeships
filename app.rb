@@ -12,12 +12,14 @@ class RockPaperScissors < Sinatra::Base
 
   get '/play' do
     @name = session[:name]
-    @option = session[:option] 
+    @option = session[:option]
+    @opponent_option = session[:opponent_option]
     erb :play 
   end
 
   post '/play' do 
     session[:option] = params[:option]
+    session[:opponent_option] = :rock
     redirect '/play'
   end 
 

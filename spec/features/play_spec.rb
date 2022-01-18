@@ -18,9 +18,21 @@ feature 'playing a game ' do
 
   # As marketeer
   # So I can play a game 
-  # I want to choose a option
+  # I want the game to choose an option
   scenario 'choose a option' do 
     click_button 'Rock'
     expect(page).to have_content 'You chose Rock!'
+  end
+
+  scenario 'game chooses a Rock' do 
+    click_button 'Rock'
+
+    message = find(:css, "#opponent").text
+    expect(possible_messages).to include 'Opponent chose Rock!'
+  end
+
+  def possible_messages
+    [:rock, :paper, :scissors].map { |option| "Opponent chose #{option.to_s.capitalize}!" }
+    
   end
 end
