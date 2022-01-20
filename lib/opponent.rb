@@ -1,6 +1,6 @@
 class Opponent
-  OPTION = [:rock, :paper, :scissors]
-  def option
-    OPTION.sample
+  SHAPE = [:rock, :paper, :scissors]
+  def shape
+    SHAPE.sample
   end 
 end 

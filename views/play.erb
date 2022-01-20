@@ -1,11 +1,13 @@
-Hello, <%= @name %>
+Hello, <%= @turn.player_name %>
 
-<form action="/play" method="post"> 
-    <input type="submit" name="option" value="Rock" />
-    <input type="submit" name="option" value="Paper" />
-    <input type="submit" name="option" value="Scissors" />
+<form method="POST" action="/play" > 
+    <input type="submit" name="shpe" value="Rock" />
+    <input type="submit" name="shape" value="Paper" />
+    <input type="submit" name="shape" value="Scissors" />
 </form>
-You chose <%= @option %>!
+
+You chose <%= @turn.player_shape.to_s.capitalize %>!
+
 <div id="opponent">
-Opponent option <%= @opponent_option.to_s.capitalize%>!
+Opponent shape <%= @turn.opponent_shape.to_s.capitalize %>!
 </div>
